@@ -1,23 +1,23 @@
-var Person = function(config) {
+var Person = function (config) {
 
-    for (var i in config ) {
+    for (var i in config) {
         this._bindAccessors(this, i, config[i]);
     }
 
 };
 
 
-function capitaliseFirstLetter(string)
-{
-    return string.charAt(0).toUpperCase() + string.slice(1);
+String.prototype.capitalize = function capitaliseFirstLetter() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
-Person.prototype._bindAccessors = function(o, property, value) {
+
+Person.prototype._bindAccessors = function (o, property, value) {
     var _value = value;
-    o["get" + capitaliseFirstLetter(property)] = function() {
+    o["get" + property.capitalize()] = function () {
         return _value;
     };
-    o["set" + capitaliseFirstLetter(property)] = function(v) {
+    o["set" + property.capitalize()] = function (v) {
         _value = v;
     };
 }
