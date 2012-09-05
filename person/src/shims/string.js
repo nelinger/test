@@ -3,7 +3,6 @@
  * @author Eran Nelinger
  *
  *
- * @class String
  * @extends String
  * Extends the String prototype
  */
